@@ -51,3 +51,7 @@ class ConstructorLocators:
     SAUCES_TAB = (By.XPATH, "//span[text()='Соусы']")
     # Вкладка "Начинки" в разделе конструктора
     FILLINGS_TAB = (By.XPATH, "//span[text()='Начинки']")
+    # Локаторы для активного состояния вкладок
+    BUNS_TAB_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current') and .//span[text()='Булки']]")
+    SAUCES_TAB_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current') and .//span[text()='Соусы']]")
+    FILLINGS_TAB_ACTIVE = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current') and .//span[text()='Начинки']]")

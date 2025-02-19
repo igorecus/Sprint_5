@@ -28,16 +28,18 @@ class TestRegistration:
             EC.visibility_of_element_located(RegistrationPageLocators.NAME_INPUT)
         )
 
-        # Заполнение формы регистрации с использованием ваших данных
+        # Заполнение формы регистрации с использованием данных
         driver.find_element(*RegistrationPageLocators.NAME_INPUT).send_keys(Constants.NAME)
         driver.find_element(*RegistrationPageLocators.EMAIL_INPUT).send_keys(generate_unique_email())
         driver.find_element(*RegistrationPageLocators.PASSWORD_INPUT).send_keys(Constants.PASSWORD)
         driver.find_element(*RegistrationPageLocators.REGISTER_BUTTON).click()
 
-        # Ожидание перехода на страницу авторизации (проверка наличия поля ввода Email)
-        WebDriverWait(driver, 10).until(
+        # Ожидание перехода на страницу авторизации (проверка наличия поля Email)
+        email_input = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(LoginPageLocators.EMAIL_INPUT)
         )
+        # Явный assert – проверяем, что поле отображается
+        assert email_input.is_displayed(), "Поле Email не отображается после регистрации"
 
     def test_registration_invalid_password(self, driver):
         # Регистрация с некорректным паролем (менее 6 символов)
