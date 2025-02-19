@@ -8,3 +8,4 @@ def driver():
     browser.get(Constants.URL)
     yield browser
     browser.quit()
+

@@ -3,5 +3,7 @@ class Constants:
     NAME = "Igor"
     EMAIL = "igor_trofimov_15_333@yandex.ru"
     PASSWORD = "123456789"
+    CONSTRUCTOR_LINK_ACTIVE = "active"
+
 
 

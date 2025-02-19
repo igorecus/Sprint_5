@@ -4,7 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from constants import Constants
 from locators import MainPageLocators, LoginPageLocators, PersonalCabinetLocators
 
-
 @pytest.mark.logout
 class TestLogout:
     def test_logout(self, driver):
@@ -19,8 +18,7 @@ class TestLogout:
         driver.find_element(*LoginPageLocators.PASSWORD_INPUT).send_keys(Constants.PASSWORD)
         driver.find_element(*LoginPageLocators.LOGIN_BUTTON).click()
 
-        # 2. После входа пользователь перенаправляется на главную страницу.
-        # Нажимаем снова на "Личный Кабинет", чтобы открыть меню профиля.
+        # 2. После входа нажимаем снова на "Личный Кабинет", чтобы открыть меню профиля.
         WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable(MainPageLocators.PERSONAL_CABINET_BUTTON)
         ).click()
